@@ -76,6 +76,35 @@ buttons.forEach(function(button) {
             }
         }
 
+        if (value === "±") {
+    if (currentNumber !== "") {
+
+        if (currentNumber.startsWith("-")) {
+            currentNumber = currentNumber.slice(1);
+        } else {
+            currentNumber = "-" + currentNumber;
+        }
+
+        if (operator === "") {
+            display.textContent = currentNumber;
+        } else {
+            display.textContent = firstNumber + " " + operator + " " + currentNumber;
+        }
+    }
+}
+
+        if (value === "%") {
+            if (currentNumber !== "") {
+                currentNumber = (Number(currentNumber) / 100).toString();
+
+                if (operator === "") {
+                    display.textContent = currentNumber;
+                } else {
+                    display.textContent = firstNumber + " " + operator + " " + currentNumber;
+                }
+            }
+        }
+
         if (value === "=") {
 
             const number1 = Number(firstNumber);
