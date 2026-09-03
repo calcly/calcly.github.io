@@ -40,6 +40,12 @@ buttons.forEach(function(button) {
 
         if (value === "+" || value === "-" || value === "*" || value === "/") {
 
+            if (value === "-" && currentNumber === "" && firstNumber === "" && operator === "") {
+                currentNumber = "-";
+                display.textContent = currentNumber;
+                return;
+            }
+
             if (currentNumber !== "") {
                 firstNumber = currentNumber;
                 currentNumber = "";
