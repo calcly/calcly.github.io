@@ -39,9 +39,13 @@ buttons.forEach(function(button) {
         }
 
         if (value === "+" || value === "-" || value === "*" || value === "/") {
-            firstNumber = currentNumber;
+
+            if (currentNumber !== "") {
+                firstNumber = currentNumber;
+                currentNumber = "";
+            }
+
             operator = value;
-            currentNumber = "";
 
             display.textContent = firstNumber + " " + operator;
         }
