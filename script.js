@@ -81,6 +81,14 @@ buttons.forEach(function(button) {
             }
 
             if (operator === "/") {
+                if (number2 === 0) {
+                    display.textContent = "Error";
+                    currentNumber = "";
+                    firstNumber = "";
+                    operator = "";
+                    return;
+                }
+
                 result = number1 / number2;
             }
 
