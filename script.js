@@ -21,6 +21,18 @@ buttons.forEach(function(button) {
             }
         }
 
+        if (value === ".") {
+            if (!currentNumber.includes(".")) {
+                currentNumber = currentNumber + ".";
+
+                if (operator === "") {
+                    display.textContent = currentNumber;
+                } else {
+                    display.textContent = firstNumber + " " + operator + " " + currentNumber;
+                }
+            }
+        }
+
         if (value === "+" || value === "-" || value === "*" || value === "/") {
             firstNumber = currentNumber;
             operator = value;
