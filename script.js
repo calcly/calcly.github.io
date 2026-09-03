@@ -23,7 +23,12 @@ buttons.forEach(function(button) {
 
         if (value === ".") {
             if (!currentNumber.includes(".")) {
-                currentNumber = currentNumber + ".";
+
+                if (currentNumber === "") {
+                    currentNumber = "0.";
+                } else {
+                    currentNumber = currentNumber + ".";
+                }
 
                 if (operator === "") {
                     display.textContent = currentNumber;
