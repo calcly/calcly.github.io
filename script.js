@@ -1,5 +1,6 @@
 const display = document.getElementById("display");
 const history = document.getElementById("history");
+const historyList = document.querySelector(".history-list");
 const clearHistory = document.getElementById("clear-history");
 const copyButton = document.getElementById("copy-button");
 
@@ -22,11 +23,13 @@ setInterval(updateClock, 1000);
 const buttons = document.querySelectorAll(".calculator .buttons button");
 
 clearHistory.addEventListener("click", function() {
-    const historyItems = history.querySelectorAll(".history-item");
+    historyList.innerHTML = "";
 
-    historyItems.forEach(function(item) {
-        item.remove();
-    });
+    for (let i = 0; i < 5; i++) {
+        const emptyItem = document.createElement("div");
+        emptyItem.className = "history-item empty-history";
+        historyList.appendChild(emptyItem);
+    }
 });
 
 copyButton.addEventListener("click", function() {
@@ -194,7 +197,14 @@ buttons.forEach(function(button) {
 
             historyItem.appendChild(historyText);
             historyItem.appendChild(deleteButton);
-            history.insertBefore(historyItem, clearHistory);
+
+            const emptyItem = historyList.querySelector(".empty-history");
+
+            if (emptyItem) {
+                historyList.replaceChild(historyItem, emptyItem);
+            } else {
+                historyList.appendChild(historyItem);
+            }
 
             display.textContent = result;
 
