@@ -64,6 +64,10 @@ body {
     box-sizing: border-box;
 }
 
+.empty-history {
+    height: 34px;
+}
+
 .history-item span {
     word-break: break-word;
 }
