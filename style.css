@@ -5,17 +5,18 @@ body {
 }
 
 #clock {
-    width: auto;
+    width: 100%;
     font-size: 28px;
     font-weight: bold;
-    margin: 0;
+    margin: 70px auto 0;
     text-align: center;
+    transform: translateX(-125px);
 }
 
 .calculator-area {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 30px;
     margin-top: 140px;
 }
