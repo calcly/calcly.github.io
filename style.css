@@ -24,7 +24,7 @@ h1 {
     font-size: 30px;
     text-align: right;
     border-radius: 8px;
-    min-height: 35px;
+    overflow-x: auto;
 }
 
 .buttons {
