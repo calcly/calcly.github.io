@@ -25,7 +25,7 @@ body {
     width: 220px;
     min-height: 250px;
     padding: 20px;
-    background-color: #d6c19a;
+    background-color: #fff8e7;
     border-radius: 15px;
     text-align: left;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -34,7 +34,7 @@ body {
 #history h2 {
     margin: -5px -5px 15px;
     padding: 12px;
-    background-color: #222;
+    background-color: #b08d57;
     color: white;
     border-radius: 10px;
     font-size: 22px;
