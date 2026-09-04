@@ -7,13 +7,13 @@ body {
 #clock {
     font-size: 28px;
     font-weight: bold;
-    margin-top: 50px;
-    margin-bottom: 10px;
+    margin-top: 70px;
+    margin-bottom: 0;
 }
 
 .calculator {
     width: 320px;
-    margin: 10px auto 50px;
+    margin: 70px auto 50px;
     padding: 20px;
     background-color: #222;
     border-radius: 15px;
