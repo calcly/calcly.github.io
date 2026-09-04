@@ -1,5 +1,21 @@
 const display = document.getElementById("display");
 
+const clock = document.getElementById("clock");
+
+function updateClock() {
+    const now = new Date();
+
+    clock.textContent = now.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+    });
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
 const buttons = document.querySelectorAll("button");
 
 let currentNumber = "";
