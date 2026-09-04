@@ -10,9 +10,31 @@ body {
     margin: 70px auto 0;
 }
 
+.calculator-area {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 140px;
+}
+
+#history {
+    width: 220px;
+    min-height: 250px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    text-align: left;
+}
+
+#history h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
 .calculator {
     width: 320px;
-    margin: 140px auto 50px;
+    margin: 0 0 50px;
     padding: 20px;
     background-color: #222;
     border-radius: 15px;
