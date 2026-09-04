@@ -41,13 +41,41 @@ body {
     text-align: center;
 }
 
-#history p {
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
     margin: 8px 0;
     padding: 8px;
     background-color: #f2f2f2;
     border-radius: 6px;
     font-size: 14px;
+}
+
+.history-item span {
     word-break: break-word;
+}
+
+.delete-history {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background-color: #d9a6a6;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+#clear-history {
+    width: 100%;
+    height: 38px;
+    margin-top: 12px;
+    background-color: #b08d57;
+    color: white;
+    font-size: 14px;
 }
 
 .calculator {
