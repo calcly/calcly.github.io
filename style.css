@@ -57,12 +57,12 @@ body {
     word-break: break-word;
 }
 
-.delete-history {
+#history .delete-history {
     flex-shrink: 0;
     width: 24px;
     height: 24px;
     padding: 0;
-    background-color: #555555;
+    background-color: #555555 !important;
     color: white;
     border-radius: 5px;
     font-size: 18px;
