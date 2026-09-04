@@ -1,6 +1,7 @@
 const display = document.getElementById("display");
 const history = document.getElementById("history");
 const clearHistory = document.getElementById("clear-history");
+const copyButton = document.getElementById("copy-button");
 
 const clock = document.getElementById("clock");
 
@@ -18,7 +19,7 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-const buttons = document.querySelectorAll(".calculator button");
+const buttons = document.querySelectorAll(".calculator .buttons button");
 
 clearHistory.addEventListener("click", function() {
     const historyItems = history.querySelectorAll(".history-item");
@@ -26,6 +27,10 @@ clearHistory.addEventListener("click", function() {
     historyItems.forEach(function(item) {
         item.remove();
     });
+});
+
+copyButton.addEventListener("click", function() {
+    navigator.clipboard.writeText(display.textContent);
 });
 
 let currentNumber = "";
@@ -133,13 +138,11 @@ buttons.forEach(function(button) {
 
         if (value === "=") {
 
-            // اگر هنوز عملگری انتخاب نشده، همان عدد را نگه دار
             if (operator === "") {
                 display.textContent = currentNumber;
                 return;
             }
 
-            // اگر عملگر داریم ولی عدد دوم وارد نشده
             if (currentNumber === "") {
                 display.textContent = firstNumber + " " + operator;
                 return;
