@@ -32,6 +32,7 @@ body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    border: 3px solid #b08d57;
 }
 
 #history h2 {
