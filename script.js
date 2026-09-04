@@ -1,5 +1,6 @@
 const display = document.getElementById("display");
 const history = document.getElementById("history");
+const clearHistory = document.getElementById("clear-history");
 
 const clock = document.getElementById("clock");
 
@@ -17,7 +18,15 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".calculator button");
+
+clearHistory.addEventListener("click", function() {
+    const historyItems = history.querySelectorAll(".history-item");
+
+    historyItems.forEach(function(item) {
+        item.remove();
+    });
+});
 
 let currentNumber = "";
 let firstNumber = "";
@@ -165,9 +174,24 @@ buttons.forEach(function(button) {
                 result = number1 / number2;
             }
 
-            const historyItem = document.createElement("p");
-            historyItem.textContent = firstNumber + " " + operator + " " + currentNumber + " = " + result;
-            history.appendChild(historyItem);
+            const historyItem = document.createElement("div");
+            historyItem.className = "history-item";
+
+            const historyText = document.createElement("span");
+            historyText.textContent = firstNumber + " " + operator + " " + currentNumber + " = " + result;
+
+            const deleteButton = document.createElement("button");
+            deleteButton.className = "delete-history";
+            deleteButton.textContent = "×";
+            deleteButton.title = "Delete this calculation";
+
+            deleteButton.addEventListener("click", function() {
+                historyItem.remove();
+            });
+
+            historyItem.appendChild(historyText);
+            historyItem.appendChild(deleteButton);
+            history.insertBefore(historyItem, clearHistory);
 
             display.textContent = result;
 
