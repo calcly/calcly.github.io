@@ -5,9 +5,11 @@ body {
 }
 
 #clock {
+    width: 100%;
     font-size: 28px;
     font-weight: bold;
     margin: 70px auto 0;
+    text-align: center;
 }
 
 .calculator-area {
