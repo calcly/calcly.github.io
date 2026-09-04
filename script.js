@@ -1,4 +1,5 @@
 const display = document.getElementById("display");
+const history = document.getElementById("history");
 
 const clock = document.getElementById("clock");
 
@@ -93,21 +94,21 @@ buttons.forEach(function(button) {
         }
 
         if (value === "±") {
-    if (currentNumber !== "") {
+            if (currentNumber !== "") {
 
-        if (currentNumber.startsWith("-")) {
-            currentNumber = currentNumber.slice(1);
-        } else {
-            currentNumber = "-" + currentNumber;
-        }
+                if (currentNumber.startsWith("-")) {
+                    currentNumber = currentNumber.slice(1);
+                } else {
+                    currentNumber = "-" + currentNumber;
+                }
 
-        if (operator === "") {
-            display.textContent = currentNumber;
-        } else {
-            display.textContent = firstNumber + " " + operator + " " + currentNumber;
+                if (operator === "") {
+                    display.textContent = currentNumber;
+                } else {
+                    display.textContent = firstNumber + " " + operator + " " + currentNumber;
+                }
+            }
         }
-    }
-}
 
         if (value === "%") {
             if (currentNumber !== "") {
@@ -121,7 +122,7 @@ buttons.forEach(function(button) {
             }
         }
 
-                       if (value === "=") {
+        if (value === "=") {
 
             // اگر هنوز عملگری انتخاب نشده، همان عدد را نگه دار
             if (operator === "") {
@@ -163,6 +164,10 @@ buttons.forEach(function(button) {
 
                 result = number1 / number2;
             }
+
+            const historyItem = document.createElement("p");
+            historyItem.textContent = firstNumber + " " + operator + " " + currentNumber + " = " + result;
+            history.appendChild(historyItem);
 
             display.textContent = result;
 
