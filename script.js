@@ -105,7 +105,19 @@ buttons.forEach(function(button) {
             }
         }
 
-        if (value === "=") {
+                       if (value === "=") {
+
+            // اگر هنوز عملگری انتخاب نشده، همان عدد را نگه دار
+            if (operator === "") {
+                display.textContent = currentNumber;
+                return;
+            }
+
+            // اگر عملگر داریم ولی عدد دوم وارد نشده
+            if (currentNumber === "") {
+                display.textContent = firstNumber + " " + operator;
+                return;
+            }
 
             const number1 = Number(firstNumber);
             const number2 = Number(currentNumber);
