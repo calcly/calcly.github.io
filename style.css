@@ -23,12 +23,15 @@ body {
 
 #history {
     width: 220px;
-    min-height: 250px;
+    height: 360px;
     padding: 20px;
     background-color: #fff8e7;
     border-radius: 15px;
     text-align: left;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
 #history h2 {
@@ -39,6 +42,12 @@ body {
     border-radius: 10px;
     font-size: 22px;
     text-align: center;
+    flex-shrink: 0;
+}
+
+.history-list {
+    flex: 1;
+    overflow-y: auto;
 }
 
 .history-item {
@@ -51,6 +60,8 @@ body {
     background-color: #f2f2f2;
     border-radius: 6px;
     font-size: 14px;
+    min-height: 34px;
+    box-sizing: border-box;
 }
 
 .history-item span {
@@ -73,9 +84,11 @@ body {
     width: 100%;
     height: 38px;
     margin-top: 12px;
-    background-color: #b08d57;
-    color: white;
+    background-color: #d6c4a8;
+    color: #333;
     font-size: 14px;
+    border-radius: 8px;
+    flex-shrink: 0;
 }
 
 .calculator {
