@@ -33,7 +33,7 @@ window.addEventListener("resize", matchHistoryHeight);
 clearHistory.addEventListener("click", function() {
     historyList.innerHTML = "";
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) {
         const emptyItem = document.createElement("div");
         emptyItem.className = "history-item empty-history";
         historyList.appendChild(emptyItem);
