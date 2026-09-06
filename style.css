@@ -23,25 +23,28 @@ body {
     margin: 25px auto 0;
     padding: 12px 20px;
     box-sizing: border-box;
-    background-color: #ffffff;
-    border: 2px dashed #b08d57;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #fffdf7, #f6ead7);
+    border: 2px solid #b08d57;
+    border-radius: 14px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 6px;
+    box-shadow: 0 4px 10px rgba(90, 63, 40, 0.12);
 }
 
 .ad-label {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    color: #888888;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #8b6845;
 }
 
 .ad-content {
     font-size: 16px;
-    color: #777777;
+    color: #6f6257;
+    font-weight: 500;
 }
 
 .calculator-area {
