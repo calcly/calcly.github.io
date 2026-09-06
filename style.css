@@ -133,7 +133,8 @@ body {
     width: 320px;
     margin: 0;
     padding: 20px;
-    background-color: #c8a77a;
+    background-color: #8b6845;
+    border: 4px solid #5a3f28;
     border-radius: 15px;
 }
 
