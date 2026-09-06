@@ -22,6 +22,14 @@ setInterval(updateClock, 1000);
 
 const buttons = document.querySelectorAll(".calculator .buttons button");
 
+function matchHistoryHeight() {
+    const calculator = document.querySelector(".calculator");
+    history.style.height = calculator.offsetHeight + "px";
+}
+
+matchHistoryHeight();
+window.addEventListener("resize", matchHistoryHeight);
+
 clearHistory.addEventListener("click", function() {
     historyList.innerHTML = "";
 
