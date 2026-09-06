@@ -13,12 +13,39 @@ body {
     left: 6px;
 }
 
+.ad-panel {
+    width: 630px;
+    height: 100px;
+    margin: 25px auto 0;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 2px dashed #b08d57;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.ad-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #888888;
+}
+
+.ad-content {
+    font-size: 16px;
+    color: #777777;
+}
+
 .calculator-area {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 30px;
-    margin-top: 140px;
+    margin-top: 30px;
 }
 
 #history {
@@ -155,4 +182,15 @@ button:nth-child(19) {
 
 button:last-child {
     background-color: #66cc99;
+}
+
+@media (max-width: 700px) {
+    .ad-panel {
+        width: calc(100% - 30px);
+    }
+
+    .calculator-area {
+        flex-direction: column;
+        align-items: center;
+    }
 }
