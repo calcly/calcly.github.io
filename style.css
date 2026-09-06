@@ -109,6 +109,14 @@ body {
     word-break: break-word;
 }
 
+.history-item .history-time {
+    margin-left: auto;
+    flex-shrink: 0;
+    white-space: nowrap;
+    color: #8b6845;
+    font-size: 12px;
+}
+
 #history .delete-history {
     flex-shrink: 0;
     width: 24px;
