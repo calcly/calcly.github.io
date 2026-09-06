@@ -127,7 +127,7 @@ body {
 
 .calculator {
     width: 320px;
-    margin: 0 0 50px;
+    margin: 0;
     padding: 20px;
     background-color: #222;
     border-radius: 15px;
