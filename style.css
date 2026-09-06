@@ -164,6 +164,7 @@ h1 {
     text-align: right;
     border-radius: 8px;
     overflow-x: auto;
+    border: 2px solid #a27f55;
 }
 
 #copy-button {
