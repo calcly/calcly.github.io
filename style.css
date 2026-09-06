@@ -5,6 +5,7 @@ body {
     border: 5px solid #b08d57;
     box-sizing: border-box;
     min-height: 100vh;
+    margin: 0;
 }
 
 #clock {
