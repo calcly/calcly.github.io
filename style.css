@@ -43,14 +43,14 @@ body {
 .calculator-area {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 30px;
     margin-top: 30px;
 }
 
 #history {
     width: 280px;
-    height: 430px;
+    height: auto;
     padding: 20px;
     background-color: #fff8e7;
     border-radius: 15px;
