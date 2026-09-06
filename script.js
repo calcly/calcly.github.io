@@ -192,7 +192,14 @@ buttons.forEach(function(button) {
             historyItem.className = "history-item";
 
             const historyText = document.createElement("span");
-            historyText.textContent = firstNumber + " " + operator + " " + currentNumber + " = " + result;
+            const now = new Date();
+            const calculationTime = now.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false
+            });
+
+            historyText.textContent = firstNumber + " " + operator + " " + currentNumber + " = " + result + "   " + calculationTime;
 
             const deleteButton = document.createElement("button");
             deleteButton.className = "delete-history";
