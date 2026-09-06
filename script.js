@@ -199,7 +199,11 @@ buttons.forEach(function(button) {
                 hour12: false
             });
 
-            historyText.textContent = firstNumber + " " + operator + " " + currentNumber + " = " + result + "   " + calculationTime;
+            historyText.textContent = firstNumber + " " + operator + " " + currentNumber + " = " + result;
+
+            const timeText = document.createElement("span");
+            timeText.className = "history-time";
+            timeText.textContent = calculationTime;
 
             const deleteButton = document.createElement("button");
             deleteButton.className = "delete-history";
@@ -211,6 +215,7 @@ buttons.forEach(function(button) {
             });
 
             historyItem.appendChild(historyText);
+            historyItem.appendChild(timeText);
             historyItem.appendChild(deleteButton);
 
             const emptyItem = historyList.querySelector(".empty-history");
