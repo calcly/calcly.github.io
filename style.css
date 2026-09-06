@@ -171,7 +171,7 @@ h1 {
 button {
     height: 55px;
     font-size: 20px;
-    font-family: "Trebuchet MS", "Comic Sans MS", cursive;
+    font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -189,7 +189,7 @@ button:nth-child(19) {
 }
 
 button:last-child {
-    background-color: #8f7657;
+    background-color: #ead7b7;
 }
 
 @media (max-width: 700px) {
