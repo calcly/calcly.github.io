@@ -235,3 +235,42 @@ buttons.forEach(function(button) {
 
     });
 });
+
+document.addEventListener("keydown", function(event) {
+    let value = event.key;
+
+    if (value === "Enter") {
+        value = "=";
+    }
+
+    if (value === "Backspace") {
+        value = "⌫";
+    }
+
+    if (value === "Escape") {
+        value = "c";
+    }
+
+    if (value === "C") {
+        value = "c";
+    }
+
+    const allowedKeys = [
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+        ".", "+", "-", "*", "/", "%", "=", "c", "⌫"
+    ];
+
+    if (!allowedKeys.includes(value)) {
+        return;
+    }
+
+    event.preventDefault();
+
+    const matchingButton = Array.from(buttons).find(function(button) {
+        return button.textContent === value;
+    });
+
+    if (matchingButton) {
+        matchingButton.click();
+    }
+});
