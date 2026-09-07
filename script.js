@@ -33,6 +33,8 @@ window.addEventListener("resize", matchHistoryHeight);
 clearHistory.addEventListener("click", function() {
     historyList.innerHTML = "";
 
+    localStorage.removeItem("calclyHistory");
+
     for (let i = 0; i < 10; i++) {
         const emptyItem = document.createElement("div");
         emptyItem.className = "history-item empty-history";
