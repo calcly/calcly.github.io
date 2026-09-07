@@ -44,9 +44,20 @@ copyButton.addEventListener("click", function() {
     navigator.clipboard.writeText(display.textContent);
 });
 
+const historyList = document.querySelector(".history-list");
+const clearHistory = document.getElementById("clear-history");
+
 let currentNumber = "";
 let firstNumber = "";
 let operator = "";
+
+function saveHistory(calculation) {
+    let savedHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
+
+    savedHistory.push(calculation);
+
+    localStorage.setItem("calclyHistory", JSON.stringify(savedHistory));
+}
 
 buttons.forEach(function(button) {
     button.addEventListener("click", function() {
