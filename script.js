@@ -44,8 +44,6 @@ copyButton.addEventListener("click", function() {
     navigator.clipboard.writeText(display.textContent);
 });
 
-const historyList = document.querySelector(".history-list");
-const clearHistory = document.getElementById("clear-history");
 
 let currentNumber = "";
 let firstNumber = "";
@@ -239,6 +237,8 @@ buttons.forEach(function(button) {
 
             display.textContent = result;
 
+            saveHistory(firstNumber + " " + operator + " " + currentNumber + " = " + result);
+            
             currentNumber = result.toString();
             firstNumber = "";
             operator = "";
