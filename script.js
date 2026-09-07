@@ -76,8 +76,16 @@ function loadHistory() {
         deleteButton.title = "Delete this calculation";
 
         deleteButton.addEventListener("click", function() {
-            historyItem.remove();
-        });
+    historyItem.remove();
+
+    let savedHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
+
+    savedHistory = savedHistory.filter(function(item) {
+        return item !== historyText.textContent;
+    });
+
+    localStorage.setItem("calclyHistory", JSON.stringify(savedHistory));
+});
 
         historyItem.appendChild(deleteButton);
 
