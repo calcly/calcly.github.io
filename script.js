@@ -56,6 +56,40 @@ function saveHistory(calculation) {
 
     localStorage.setItem("calclyHistory", JSON.stringify(savedHistory));
 }
+function loadHistory() {
+    let savedHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
+
+    savedHistory.forEach(function(calculation) {
+        const historyItem = document.createElement("div");
+        historyItem.className = "history-item";
+
+        const historyText = document.createElement("span");
+        historyText.textContent = calculation;
+
+        historyItem.appendChild(historyText);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete-history";
+        deleteButton.textContent = "×";
+        deleteButton.title = "Delete this calculation";
+
+        deleteButton.addEventListener("click", function() {
+            historyItem.remove();
+        });
+
+        historyItem.appendChild(deleteButton);
+
+        const emptyItem = historyList.querySelector(".empty-history");
+
+        if (emptyItem) {
+            historyList.replaceChild(historyItem, emptyItem);
+        } else {
+            historyList.appendChild(historyItem);
+        }
+    });
+}
+
+loadHistory();
 
 buttons.forEach(function(button) {
     button.addEventListener("click", function() {
