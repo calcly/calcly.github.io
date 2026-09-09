@@ -46,29 +46,52 @@ copyButton.addEventListener("click", function() {
     navigator.clipboard.writeText(display.textContent);
 });
 
-
 let currentNumber = "";
 let firstNumber = "";
 let operator = "";
 
-function saveHistory(calculation) {
+function saveHistory(calculation, time) {
     let savedHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
 
-    savedHistory.push(calculation);
+    savedHistory.push({
+        id: Date.now(),
+        calculation: calculation,
+        time: time
+    });
 
     localStorage.setItem("calclyHistory", JSON.stringify(savedHistory));
 }
+
 function loadHistory() {
     let savedHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
 
-    savedHistory.forEach(function(calculation) {
+    savedHistory.forEach(function(item) {
         const historyItem = document.createElement("div");
         historyItem.className = "history-item";
 
         const historyText = document.createElement("span");
-        historyText.textContent = calculation;
 
+        let calculation;
+        let calculationTime = "";
+        let itemId = null;
+
+        if (typeof item === "string") {
+            calculation = item;
+        } else {
+            calculation = item.calculation;
+            calculationTime = item.time || "";
+            itemId = item.id;
+        }
+
+        historyText.textContent = calculation;
         historyItem.appendChild(historyText);
+
+        if (calculationTime !== "") {
+            const timeText = document.createElement("span");
+            timeText.className = "history-time";
+            timeText.textContent = calculationTime;
+            historyItem.appendChild(timeText);
+        }
 
         const deleteButton = document.createElement("button");
         deleteButton.className = "delete-history";
@@ -76,16 +99,22 @@ function loadHistory() {
         deleteButton.title = "Delete this calculation";
 
         deleteButton.addEventListener("click", function() {
-    historyItem.remove();
+            historyItem.remove();
 
-    let savedHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
+            let currentHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
 
-    savedHistory = savedHistory.filter(function(item) {
-        return item !== historyText.textContent;
-    });
+            if (itemId !== null) {
+                currentHistory = currentHistory.filter(function(savedItem) {
+                    return savedItem.id !== itemId;
+                });
+            } else {
+                currentHistory = currentHistory.filter(function(savedItem) {
+                    return savedItem !== calculation;
+                });
+            }
 
-    localStorage.setItem("calclyHistory", JSON.stringify(savedHistory));
-});
+            localStorage.setItem("calclyHistory", JSON.stringify(currentHistory));
+        });
 
         historyItem.appendChild(deleteButton);
 
@@ -252,11 +281,14 @@ buttons.forEach(function(button) {
                 hour12: false
             });
 
-            historyText.textContent = firstNumber + " " + operator + " " + currentNumber + " = " + result;
+            const calculation = firstNumber + " " + operator + " " + currentNumber + " = " + result;
+            historyText.textContent = calculation;
 
             const timeText = document.createElement("span");
             timeText.className = "history-time";
             timeText.textContent = calculationTime;
+
+            const historyId = Date.now();
 
             const deleteButton = document.createElement("button");
             deleteButton.className = "delete-history";
@@ -269,7 +301,11 @@ buttons.forEach(function(button) {
                 let savedHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
 
                 savedHistory = savedHistory.filter(function(item) {
-                    return item !== historyText.textContent;
+                    if (typeof item === "string") {
+                        return item !== calculation;
+                    }
+
+                    return item.id !== historyId;
                 });
 
                 localStorage.setItem("calclyHistory", JSON.stringify(savedHistory));
@@ -289,8 +325,8 @@ buttons.forEach(function(button) {
 
             display.textContent = result;
 
-            saveHistory(firstNumber + " " + operator + " " + currentNumber + " = " + result);
-            
+            saveHistory(calculation, calculationTime);
+
             currentNumber = result.toString();
             firstNumber = "";
             operator = "";
