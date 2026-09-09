@@ -265,6 +265,14 @@ buttons.forEach(function(button) {
 
             deleteButton.addEventListener("click", function() {
                 historyItem.remove();
+
+                let savedHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
+
+                savedHistory = savedHistory.filter(function(item) {
+                    return item !== historyText.textContent;
+                });
+
+                localStorage.setItem("calclyHistory", JSON.stringify(savedHistory));
             });
 
             historyItem.appendChild(historyText);
