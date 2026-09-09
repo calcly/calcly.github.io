@@ -50,11 +50,11 @@ let currentNumber = "";
 let firstNumber = "";
 let operator = "";
 
-function saveHistory(calculation, time) {
+function saveHistory(calculation, time, id) {
     let savedHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
 
     savedHistory.push({
-        id: Date.now(),
+        id: id,
         calculation: calculation,
         time: time
     });
@@ -99,7 +99,8 @@ function loadHistory() {
         deleteButton.title = "Delete this calculation";
 
         deleteButton.addEventListener("click", function() {
-            historyItem.remove();
+            historyItem.innerHTML = "";
+            historyItem.className = "history-item empty-history";
 
             let currentHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
 
@@ -296,7 +297,8 @@ buttons.forEach(function(button) {
             deleteButton.title = "Delete this calculation";
 
             deleteButton.addEventListener("click", function() {
-                historyItem.remove();
+                historyItem.innerHTML = "";
+                historyItem.className = "history-item empty-history";
 
                 let savedHistory = JSON.parse(localStorage.getItem("calclyHistory")) || [];
 
@@ -325,7 +327,7 @@ buttons.forEach(function(button) {
 
             display.textContent = result;
 
-            saveHistory(calculation, calculationTime);
+            saveHistory(calculation, calculationTime, historyId);
 
             currentNumber = result.toString();
             firstNumber = "";
